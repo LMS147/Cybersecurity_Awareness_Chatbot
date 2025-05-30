@@ -24,5 +24,10 @@ namespace Cybersecurity_Awareness_Chatbot
         {
             InitializeComponent();
         }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

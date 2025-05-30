@@ -7,10 +7,52 @@
         mc:Ignorable="d"
          Title="Cybersecurity Awareness Bot" Height="650" Width="900"
         WindowStartupLocation="CenterScreen"
-        Background="#FF0A0A2A">
-    
+        Background="#FF0A0A2A"
+        Foreground="White">
+    <Window.Resources>
+        <!-- Keep all your existing styles here -->
+        
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1A73E8"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <!-- TabItem Style -->
+        <Style TargetType="TabItem">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border Name="Border" BorderThickness="1" BorderBrush="#FF3A3A6B" CornerRadius="5,5,0,0" >
+                            <ContentPresenter x:Name="ContentSite" 
+                                              VerticalAlignment="Center" 
+                                              HorizontalAlignment="Center"
+                                              ContentSource="Header" 
+                                              Margin="10,2"
+                                              />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#FF1E1E4E"/>
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="#FF0F0F3A"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <TabControl>
+        <TabControl SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Chatbot">
                 <!-- Chatbot UI goes here -->
             </TabItem>
