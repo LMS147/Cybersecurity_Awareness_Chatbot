@@ -1,0 +1,12 @@
+[user]
+	name = LMS147
+	email = mashaoleshaolin0@gmail.com
+[safe]
+	directory = C:\Users\masha\source\repos\Cybersecurity_Awareness_Chatbot
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = cache
