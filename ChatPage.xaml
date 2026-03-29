@@ -1,0 +1,72 @@
+﻿<Page x:Class="form.ChatPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:form"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ChatPage" Background="#1E1E2F">
+
+    <Page.Resources>
+        <Style TargetType="Border">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="5" Opacity="0.3" Direction="270" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- Chat Area -->
+            <RowDefinition Height="Auto"/>
+            <!-- Input Area -->
+        </Grid.RowDefinitions>
+
+        <!-- ASCII Art Display -->
+        <TextBlock x:Name="AsciiArtBlock"
+               FontFamily="Consolas"
+               FontSize="12"
+               Foreground="Cyan"
+               TextWrapping="Wrap"
+               Margin="10"
+               Visibility="Collapsed"
+               Grid.Row="0"/>
+
+        <!-- Chat Display Area with Scroll -->
+        <ScrollViewer Name="ChatScrollViewer"
+                      Grid.Row="0"
+                      Background="#1E1E1E"
+                      Padding="10"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel Name="ChatPanel"/>
+        </ScrollViewer>
+
+        <!-- Input Section -->
+        <Border Grid.Row="1" Background="#333" Padding="10">
+            <DockPanel LastChildFill="True">
+                <TextBox x:Name="UserInput"
+                         MinHeight="30"
+                         Margin="0,0,10,0"
+                         Background="#444"
+                         Foreground="White"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Auto"
+                         BorderBrush="DarkGray"
+                         Padding="10"
+                         Width="680"/>
+                <Button Content="Send"
+                        Width="70"
+                        Background="#0E76FD"
+                        Foreground="White"
+                        Click="Send_Click"/>
+                
+            </DockPanel>
+        </Border>
+    </Grid>
+</Page>
